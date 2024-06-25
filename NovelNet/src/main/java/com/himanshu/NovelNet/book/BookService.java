@@ -136,7 +136,7 @@ public class BookService {
             throw new OperationNotAllowedException("You can not update books, you don't own");
         }
 
-        book.setArchivied(!book.isArchivied());
+        book.setArchived(!book.isArchived());
         bookRepository.save(book);
         return bookId;
     }
@@ -145,7 +145,7 @@ public class BookService {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new EntityNotFoundException("No book found with given Id"));
 
-        if (book.isArchivied() || !book.isShareable()) {
+        if (book.isArchived() || !book.isShareable()) {
             throw new OperationNotAllowedException("Requested book can not be shared!!");
         }
         User user = (User) connectedUser.getPrincipal();
@@ -174,7 +174,7 @@ public class BookService {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new EntityNotFoundException("No book found with given Id"));
 
-        if (book.isArchivied() || !book.isShareable()) {
+        if (book.isArchived() || !book.isShareable()) {
             throw new OperationNotAllowedException("Requested book can not be shared!!");
         }
         User user = (User) connectedUser.getPrincipal();
@@ -195,7 +195,7 @@ public class BookService {
         Book book = bookRepository.findById(bookId)
                 .orElseThrow(() -> new EntityNotFoundException("No book found with given Id"));
 
-        if (book.isArchivied() || !book.isShareable()) {
+        if (book.isArchived() || !book.isShareable()) {
             throw new OperationNotAllowedException("Requested book can not be shared!!");
         }
         User user = (User) connectedUser.getPrincipal();

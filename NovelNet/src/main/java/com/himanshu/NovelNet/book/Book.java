@@ -31,7 +31,7 @@ public class Book extends BaseEntity {
 
     private String bookCover;
 
-    private boolean archivied;
+    private boolean archived;
 
     private boolean shareable;
 
